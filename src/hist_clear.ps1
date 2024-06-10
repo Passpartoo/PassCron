@@ -17,7 +17,7 @@ Gestion et export de l'historique avant de nettoyer le cache
 $intro = @"
 
 **************************************************
-*		Log & Cache History		                 *
+*		             Log & Cache History 		           *
 **************************************************
 "@
 
