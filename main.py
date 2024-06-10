@@ -6,6 +6,7 @@ from EniCrypt import EniCrypt
 
 root = tk.Tk()
 root.geometry("450x300")
+root.title("PassCron")
 
 tab_control = ttk.Notebook(root)
 tab1 = TimeZoneConverter(tab_control)
