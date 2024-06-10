@@ -19,7 +19,7 @@ https://www.it-connect.fr/cours/dhcp-du-protocole-a-la-configuration/
 $PROGNAMME = @"
 
 **************************************************
-*		      DHCP INSTALLER	         *
+*		          DHCP INSTALLER	             *
 **************************************************
 
 Ce script permet d'installer un DHCP en commande Shell

@@ -10,14 +10,13 @@
 
 <#
 Documentation:
-Gestion et export de l'historique avant de nettoyer le cache
-
+File test for AutomationScript.py
 #>
 
 $intro = @"
 
 **************************************************
-*		Log & Cache History		                 *
+*		    Hello World 		                 *
 **************************************************
 "@
 
@@ -25,19 +24,13 @@ Clear-Host
 
 write-host $intro -ForegroundColor Green
 
-# Aller dans le répertoire de travail
-#cd "C:\Users\user"
+$Texte="Hello World test script Begin !" 
+Write-host $Texte
 
-
-$History = (Get-PSReadLineOption).HistorySavePath
-$History
-
-Remove-Item -Path $History -Verbose
-
-$old_History = Import-Csv -Path '.\CommandHistory.Csv'
- 
-Add-History -InputObject $OldHistory -Passthru
-
-Clear-History
-
-echo "Fin du programme"
+Write-host "Nous sommes le" $(Get-Date) -NoNewline
+echo ""
+Write-Host "Répertoire de travail : " $(Get-Location)
+echo ""
+echo ""
+Add-Type -AssemblyName System.Windows.Forms
+[System.Windows.Forms.MessageBox]::Show('Bonjour tous le monde', 'Hello World')
