@@ -12,6 +12,7 @@ class AutomationScript(ttk.Frame):
         super().__init__(master)
         self.running = False
         self.process = None
+        self.create_widgets()
 
     def create_widgets(self):
         self.files_var = {}
