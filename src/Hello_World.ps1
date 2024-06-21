@@ -29,7 +29,7 @@ Write-host $Texte
 
 Write-host "Nous sommes le" $(Get-Date) -NoNewline
 echo ""
-Write-Host "Répertoire de travail : " $(Get-Location)
+Write-Host "Repertoire de travail : " $(Get-Location)
 echo ""
 echo ""
 Add-Type -AssemblyName System.Windows.Forms

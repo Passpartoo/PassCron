@@ -33,7 +33,14 @@ class AutomationScript(ttk.Frame):
 
     def print_selected_files(self):
         self.listeScript = [file for file in self.files if self.files_var[file].get()]
-        messagebox.showinfo("Information", "Développement en cours")
+        self.list_task()
+        messagebox.showinfo("Information", "Lancement de l'execution du script")
+        self.execute_scripts()         
+        # Executing the script via this function does not take multi-heading into account
+        # this generates a risk of crashing the main python application. Solution considered, use schedule.run_pending()
+        # Maybe try with self.cron(10, schedule.idle_seconds)
+        self.stop_task()
+        self.clear()
 
     def upload_scripts(self):
         filepaths = filedialog.askopenfilenames(filetypes=[("Scripts", "*.sh *.bash *.ps1")])
@@ -49,6 +56,19 @@ class AutomationScript(ttk.Frame):
         schedule.every(interval).__dict__[unit].do(self.execute_scripts)
         self.process = Process(target=self.run_pending_tasks)
         self.process.start()
+
+
+    def job(self):
+        print("Tâche exécutée.")
+
+        # Planifie la fonction 'job' pour s'exécuter toutes les 10 secondes
+        schedule.every(10).seconds.do(self.job)
+
+        while True:
+            # Exécute toutes les tâches planifiées en attente
+            schedule.run_pending()
+            time.sleep(1)
+
 
     def execute_scripts(self):
         for script in self.listeScript:
